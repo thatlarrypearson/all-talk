@@ -68,7 +68,7 @@ class IPV4_UDP_Receiver(object):
         }
         return message_dict
 
-# This runs when we are executing this program using the command line - python all_talk.py
+# This runs when we are executing this program using the command line - python all_listen.py
 if __name__ == "__main__":
 
     udp_received_messages = IPV4_UDP_Receiver()
