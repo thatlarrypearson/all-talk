@@ -93,15 +93,19 @@ sudo apt dist-upgrade -y
 sudo apt autoremove -y
 ```
 
-### Installing This Python Software
+### Installing a Non-System Version of Python on Raspberry Pi OS
+
+Follow the instructions [here](https://github.com/thatlarrypearson/telemetry-obd/blob/master/docs/Python311-Install.md) for installing Python 3.11.
+
+### Installing This Python Software Package
 
 With some, little or no modification, the installation instructions should work for other Linux based systems.  The amount of effort will vary by Linux distribution with Debian based distributions the easiest.
 
 ```bash
 git clone https://github.com/thatlarrypearson/all-talk.git
 cd all-talk
-python -m build .
-python -m pip install --user dist/all_talk-0.0.0-py3-none-any.whl
+python3.11 -m build .
+python3.11 -m pip install dist/all_talk-0.0.0-py3-none-any.whl
 ```
 
 ## License
