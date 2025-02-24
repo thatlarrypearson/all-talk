@@ -1,7 +1,11 @@
 # https://stackoverflow.com/questions/64066634/sending-broadcast-in-python
+# This doesn't work on Windows without modification:
+# - remove "import netifaces"
 
 import contextlib
 import socket
+# Linux
+import netifaces
 import json
 from time import sleep
 
@@ -28,11 +32,17 @@ class IPV4_UDP_Broadcaster(object):
     # Same as Windows/Mac/Linux command line command "hostname"
     hostname = socket.gethostname()
 
-    # Get each network interface's information
-    interfaces = socket.getaddrinfo(host=hostname, port=None, family=socket.AF_INET)
+    # Get list of network interfaces
+        # Windows
+        # interfaces = socket.getaddrinfo(host=hostname, port=None, family=socket.AF_INET)
+    # Linux
+    network_interfaces = netifaces.interfaces()
 
-    # Break out the IPV4 address of each interface and put them in a new list
-    interface_addresses = [ip[-1][0] for ip in interfaces]
+    # Get IPV4 address for each interface and put in a new list
+        # Windows
+        # interface_addresses = [ip[-1][0] for ip in interfaces]
+    # Linux
+    interface_addresses = [netifaces.ifaddresses(network_interfaces)[netifaces.AF_INET][0]['addr'] for network_interface in network_interfaces]
 
     sockets = []
 
