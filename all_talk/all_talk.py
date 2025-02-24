@@ -42,7 +42,7 @@ class IPV4_UDP_Broadcaster(object):
         # Windows
         # interface_addresses = [ip[-1][0] for ip in interfaces]
     # Linux
-    interface_addresses = [netifaces.ifaddresses(network_interfaces)[netifaces.AF_INET][0]['addr'] for network_interface in network_interfaces]
+    interface_addresses = [netifaces.ifaddresses(network_interface)[netifaces.AF_INET][0]['addr'] for network_interface in network_interfaces]
 
     sockets = []
 
