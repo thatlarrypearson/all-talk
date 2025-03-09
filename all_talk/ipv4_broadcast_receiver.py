@@ -1,4 +1,4 @@
-# all-talk/all_talk/all_listen.py
+# all-talk/all_talk/ipv4_broadcast_receiver.py
 import socket
 import json
 
@@ -68,10 +68,10 @@ class IPV4_UDP_Receiver(object):
         }
         return message_dict
 
-# This runs when we are executing this program using the command line - python all_listen.py
+# This runs when we are executing this program using the command line - python ipv4_broadcast_receiver.py
 if __name__ == "__main__":
 
     udp_received_messages = IPV4_UDP_Receiver()
 
     for message in udp_received_messages:
-        print(f"Message Number {udp_received_messages.message_count}, Message: {message}")
+        print(f"Received Message Number {udp_received_messages.message_count}, Message: {message}")
