@@ -72,7 +72,7 @@ class IPV4_UDP_Broadcaster(object):
     ):
         self.port_number = port_number
         self.interface_address = interface_address
-        self.initialize_socket_interface(interface_address)
+        self.initialize_socket_interface()
 
         return
 
